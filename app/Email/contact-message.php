@@ -26,7 +26,7 @@
               rel="stylesheet">
         <style type="text/css">
             body{
-                font-family: 'Verdana', Arial, sans-serif;
+                font-family: 'Roboto', Arial, sans-serif;
             }
             a,a[href],a:hover, a:link, a:visited {
                 /* This is the link colour */
@@ -40,7 +40,7 @@
                 /* Fallback paragraph style */
                 font-size:15px;
                 line-height:24px;
-                font-family:'Verdana', Arial, sans-serif;
+                font-family:'Roboto', Arial, sans-serif;
                 font-weight:300;
                 text-decoration:none;
                 color: #000000;
@@ -49,7 +49,7 @@
                 /* Fallback heading style */
                 font-size:22px;
                 line-height:24px;
-                font-family:'Verdana', Arial, sans-serif;
+                font-family:'Roboto', Arial, sans-serif;
                 font-weight:normal;
                 text-decoration:none;
                 color: #000000;
@@ -70,18 +70,18 @@
         <!-- Email not displaying correctly -->
 
         <!-- Start container for logo -->
-        <table align="center" style="text-align: center; vertical-align: top; width: 600px; max-width: 600px; background-color: #BE1407;" width="600">
-            <tbody>
-            <tr>
-                <td style="width: 596px; vertical-align: top; padding-left: 0; padding-right: 0; padding-top: 15px; padding-bottom: 15px; background-color: #BE1407;" width="596">
-
-                    <!-- Your logo is here -->
-                    <img style="width: 150px; max-width: 150px; height: 150px; max-height: 80px; text-align: center; color: #ffffff;" alt="Logo" src="cid:logoimg" align="center" width="150" height="150">
-
-                </td>
-            </tr>
-            </tbody>
-        </table>
+<!--        <table align="center" style="text-align: center; vertical-align: top; width: 600px; max-width: 600px; background-color: #BE1407;" width="600">-->
+<!--            <tbody>-->
+<!--            <tr>-->
+<!--                <td style="width: 596px; vertical-align: top; padding-left: 0; padding-right: 0; padding-top: 15px; padding-bottom: 15px; background-color: #BE1407;" width="596">-->
+<!---->
+<!--                     Your logo is here -->
+<!--                    <img style="width: 150px; max-width: 150px; height: 150px; max-height: 80px; text-align: center; color: #ffffff;" alt="Logo" src="cid:logoimg" align="center" width="150" height="150">-->
+<!---->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
         <!-- End container for logo -->
 
         <!-- Hero image -->
@@ -94,9 +94,7 @@
             <tr>
                 <td style="width: 596px; vertical-align: top; padding-left: 30px; padding-right: 30px; padding-top: 30px; padding-bottom: 10px;" width="596">
 
-                    <h1 style="font-size: 22px; line-height: 30px; font-family: 'Verdana', Arial, sans-serif; font-weight: 600; text-decoration: none; color: #000000;">Nuevo mensaje de <?= $contactMessage->name; ?>:</h1>
-
-                    <p style="font-size: 16px; line-height: 24px; font-family: 'Verdana', Arial, sans-serif; font-weight: 400; text-decoration: none; color: #000000;"><?php echo nl2br($contactMessage->message); ?></p>
+                    <h1 style="font-size: 18px; line-height: 30px; font-family: 'Roboto', Arial, sans-serif; font-weight: 300; text-decoration: none; color: #000000;">Tienes un nuevo mensaje de <span style="font-weight: bold"><?= $contactMessage->name; ?>:</span> </h1>
 
                 </td>
             </tr>
@@ -110,40 +108,42 @@
             <!-- Contact Information Row -->
             <tr>
                 <td style="width: 530px; vertical-align: top; padding-left: 30px; padding-right: 15px; padding-top: 0; padding-bottom: 20px; text-align: left;" width="530" colspan="2">
-                    <div style="width: 530px; border-radius: 5px !important; border: 1px solid #DFDFDF !important; padding-bottom: 20px; margin-bottom: 20px;">
-                        <p style="margin: 20px 0 0 20px !important; font-family: 'Verdana', sans-serif; font-size: 18px; font-weight: bold;">Informaci&oacute;n de contacto</p>
-
-                        <table align="center" style="text-align: center; vertical-align: top; width: 530px; max-width: 530px; background-color: #ffffff; " width="530" cellspacing="0" cellpadding="0">
+                    <div style="width: 530px; border-radius: 5px !important; border: 1px solid #ECECEC !important; padding-bottom: 20px; margin-bottom: 20px; background-color: #ECECEC">
+                        <p style="margin: 20px 0 0 20px !important; font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold;">Mensaje</p>
+                        <p style="margin: 20px 20px 0 20px !important; font-size: 16px; line-height: 24px; font-family: 'Roboto', Arial, sans-serif; font-weight: 400; text-decoration: none; color: #000000;"><?php echo nl2br($contactMessage->message); ?></p>
+<!--                        <p style="margin: 20px 0 0 20px !important; font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold;">Informaci&oacute;n de contacto</p>-->
+                        <p style="margin: 20px 0 0 20px !important; font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold;">Datos de contacto</p>
+                        <table align="center" style="text-align: center; vertical-align: top; width: 530px; max-width: 530px;" width="530" cellspacing="0" cellpadding="0">
                             <tbody>
                             <tr>
-                                <td style="width: 265px; vertical-align: top; padding-left: 20px; padding-top: 10px; padding-bottom: 5px; text-align: left;;">
-                                    <p style="margin: 5px 0 5px 0 !important; font-family: 'Verdana', Arial, sans-serif; font-size: 16px; font-weight: 400;">
-                                        <span style="font-weight: 600">Nombre: </span> <br style="margin-bottom: 5px;">
-                                        <?= $contactMessage->name; ?>
+                                <td style="width: 265px; vertical-align: top; padding-left: 20px; padding-top: 10px; padding-bottom: 5px; text-align: left;">
+                                    <p style="margin: 5px 0 5px 0 !important; font-family: 'Roboto', Arial, sans-serif; font-size: 16px; font-weight: 400;">
+                                        <span style="font-weight: 300; font-size: 14px;">Nombre / Empresa </span> <br style="margin-bottom: 5px;">
+                                        <span style="font-weight: bold"><?= $contactMessage->name; ?></span>
                                     </p>
                                 </td>
 
                                 <td style="width: 265px; vertical-align: top; padding-right: 20px; padding-top: 10px; padding-bottom: 5px; text-align: left;">
-                                    <p style="margin: 5px 0 5px 0 !important; font-family: 'Verdana', Arial, sans-serif; font-size: 16px; font-weight: 400;">
-                                        <span style="font-weight: 600">Tel&eacute;fono:</span> <br style="margin-bottom: 5px;">
-                                        <?= $contactMessage->telephone; ?>
+                                    <p style="margin: 5px 0 5px 0 !important; font-family: 'Roboto', Arial, sans-serif; font-size: 16px; font-weight: 400;">
+                                        <span style="font-weight: 300; font-size: 14px;">Tel&eacute;fono</span> <br style="margin-bottom: 5px;">
+                                        <span style="font-weight: bold"><?= $contactMessage->telephone; ?></span>
                                     </p>
                                 </td>
                             </tr>
 
                             <tr>
                                 <td style="width: 265px; vertical-align: top; padding-left: 20px; padding-top: 0px; padding-bottom: 5px; text-align: left;">
-                                    <p style="margin: 5px 0 5px 0 !important; font-family: 'Verdana', Arial, sans-serif; font-size: 16px; font-weight: 400;">
-                                        <span style="font-weight: 600">Email:</span> <br style="margin-bottom: 5px;">
-                                        <?= $contactMessage->email; ?>
+                                    <p style="margin: 5px 0 5px 0 !important; font-family: 'Roboto', Arial, sans-serif; font-size: 16px; font-weight: 400;">
+                                        <span style="font-weight: 300; font-size: 14px;">Correo electrónico</span> <br style="margin-bottom: 5px;">
+                                        <span style="font-weight: bold"><?= $contactMessage->email; ?></span>
                                     </p>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="width: 265px; vertical-align: top; padding-left: 20px; padding-top: 0px; padding-bottom: 5px; text-align: left;">
-                                    <p style="margin: 5px 0 5px 0 !important; font-family: 'Verdana', Arial, sans-serif; font-size: 16px; font-weight: 400;">
-                                        <span style="font-weight: 600">Empresa:</span> <br style="margin-bottom: 5px;">
-                                        <?= $contactMessage->organization; ?>
+                                    <p style="margin: 5px 0 5px 0 !important; font-family: 'Roboto', Arial, sans-serif; font-size: 16px; font-weight: 400;">
+                                        <span style="font-weight: 300; font-size: 14px;">Servicios de interés</span> <br style="margin-bottom: 5px;">
+                                        <span style="font-weight: bold"><?= $contactMessage->organization; ?></span>
                                     </p>
                                 </td>
                             </tr>
@@ -159,20 +159,14 @@
         <!-- End double column section -->
 
         <!-- Start footer -->
-        <table align="center" style="text-align: center; vertical-align: top; width: 600px; max-width: 600px; background-color: #BE1407;" width="600">
+        <table align="center" style="text-align: center; vertical-align: top; width: 600px; max-width: 600px; background-color: #131313;" width="600">
             <tbody>
             <tr>
                 <td style="width: 596px; vertical-align: top; padding-left: 30px; padding-right: 30px; padding-top: 30px; padding-bottom: 30px;" width="596">
 
-
-                    <p style="font-size: 14px; line-height: 24px; font-family: 'Verdana', Arial, sans-serif; font-weight: 400; color: #ffffff;">
-                        <a href="#" style="color: #FFFFFF; font-size: 14px; font-weight: 600; text-decoration: underline !important;">Privacy Police</a><br>
-                        <a href="#" style="color: #FFFFFF; font-size: 14px; font-weight: 600; text-decoration: underline !important;">Terms and Conditions</a>
-                    </p>
-
-                    <p style="margin-bottom: 0; font-size: 14px; line-height: 24px; font-family: 'Verdana', Arial, sans-serif; font-weight: 600; text-decoration: none; color: #ffffff;">
+                    <p style="margin-bottom: 0; font-size: 16px; line-height: 24px; font-family: 'Roboto', Arial, sans-serif; font-weight: 300; text-decoration: none; color: #ffffff;">
                         <a target="_blank" style="text-decoration: underline; color: #ffffff;" href="">
-                            &copy; 2024 Todos los derechos reservados para MNA Maquila.
+                            Copyright &copy; 2024 Markea Agency, Todos los derechos reservados.
                         </a>
                     </p>
 

@@ -71,7 +71,6 @@ class WebSitesController extends Controller
 
             // Obtener el contenido del template HTML
 
-
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
             // Incluir el template PHP y pasar el mensaje del formulario como parámetro
@@ -79,17 +78,17 @@ class WebSitesController extends Controller
 
             $contactMessage = new \stdClass();
             // Supongamos que $contactMessage es un objeto stdClass vacío
-            $contactMessage->message = 'Este es una prueba de descripción';
+            $contactMessage->message = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in iaculis urna. Ut lobortis feugiat rhoncus. Nullam tempus, velit sit amet dignissim congue, diam ex rutrum sem, vel pellentesque ipsum ipsum quis metus. Curabitur pellentesque, sapien non blandit sollicitudin, risus neque sagittis libero, ut blandit nibh lorem ut elit. Fusce suscipit fringilla blandit. ';
             $contactMessage->telephone = $request->input('phone');
             $contactMessage->email = $request->input('email');
-            $contactMessage->name = $request->input('first_name') . $request->input('last_name');
+            $contactMessage->name = $request->input('first_name') .' '. $request->input('last_name');
             $contactMessage->organization = $request->input('company');
-            $contactMessage->imagenPathHero = public_path('images/imagen-hero-email.png');
-            $contactMessage->imagenPathLogo = public_path('images/logo-mna-maq.png');
+//            $contactMessage->imagenPathLogo = public_path('images/logo-mna-maq.png');
+            $contactMessage->imagenPathHero = public_path('images/header-markea.png');
 
             // Adjuntar la imagen al correo electrónico
             $mail->AddEmbeddedImage($contactMessage->imagenPathHero, 'heroimg');
-            $mail->AddEmbeddedImage($contactMessage->imagenPathLogo, 'logoimg');
+//            $mail->AddEmbeddedImage($contactMessage->imagenPathLogo, 'logoimg');
 
             ob_start();
             require app_path('Email/contact-message.php');
