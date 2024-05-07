@@ -70,18 +70,18 @@
         <!-- Email not displaying correctly -->
 
         <!-- Start container for logo -->
-<!--        <table align="center" style="text-align: center; vertical-align: top; width: 600px; max-width: 600px; background-color: #BE1407;" width="600">-->
-<!--            <tbody>-->
-<!--            <tr>-->
-<!--                <td style="width: 596px; vertical-align: top; padding-left: 0; padding-right: 0; padding-top: 15px; padding-bottom: 15px; background-color: #BE1407;" width="596">-->
-<!---->
-<!--                     Your logo is here -->
-<!--                    <img style="width: 150px; max-width: 150px; height: 150px; max-height: 80px; text-align: center; color: #ffffff;" alt="Logo" src="cid:logoimg" align="center" width="150" height="150">-->
-<!---->
-<!--                </td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-<!--        </table>-->
+        <!--        <table align="center" style="text-align: center; vertical-align: top; width: 600px; max-width: 600px; background-color: #BE1407;" width="600">-->
+        <!--            <tbody>-->
+        <!--            <tr>-->
+        <!--                <td style="width: 596px; vertical-align: top; padding-left: 0; padding-right: 0; padding-top: 15px; padding-bottom: 15px; background-color: #BE1407;" width="596">-->
+        <!---->
+        <!--                     Your logo is here -->
+        <!--                    <img style="width: 150px; max-width: 150px; height: 150px; max-height: 80px; text-align: center; color: #ffffff;" alt="Logo" src="cid:logoimg" align="center" width="150" height="150">-->
+        <!---->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            </tbody>-->
+        <!--        </table>-->
         <!-- End container for logo -->
 
         <!-- Hero image -->
@@ -111,41 +111,61 @@
                     <div style="width: 530px; border-radius: 5px !important; border: 1px solid #ECECEC !important; padding-bottom: 20px; margin-bottom: 20px; background-color: #ECECEC">
                         <p style="margin: 20px 0 0 20px !important; font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold;">Mensaje</p>
                         <p style="margin: 20px 20px 0 20px !important; font-size: 16px; line-height: 24px; font-family: 'Roboto', Arial, sans-serif; font-weight: 400; text-decoration: none; color: #000000;"><?php echo nl2br($contactMessage->message); ?></p>
-<!--                        <p style="margin: 20px 0 0 20px !important; font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold;">Informaci&oacute;n de contacto</p>-->
+                        <!--                        <p style="margin: 20px 0 0 20px !important; font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold;">Informaci&oacute;n de contacto</p>-->
                         <p style="margin: 20px 0 0 20px !important; font-family: 'Roboto', sans-serif; font-size: 18px; font-weight: bold;">Datos de contacto</p>
                         <table align="center" style="text-align: center; vertical-align: top; width: 530px; max-width: 530px;" width="530" cellspacing="0" cellpadding="0">
                             <tbody>
                             <tr>
-                                <td style="width: 265px; vertical-align: top; padding-left: 20px; padding-top: 10px; padding-bottom: 5px; text-align: left;">
+                                <td style="width: 265px; vertical-align: top; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 5px;  text-align: left;">
                                     <p style="margin: 5px 0 5px 0 !important; font-family: 'Roboto', Arial, sans-serif; font-size: 16px; font-weight: 400;">
                                         <span style="font-weight: 300; font-size: 14px;">Nombre / Empresa </span> <br style="margin-bottom: 5px;">
-                                        <span style="font-weight: bold"><?= $contactMessage->name; ?></span>
+                                        <span style="font-weight: bold; font-size: 18px;"><?= $contactMessage->name; ?></span>
                                     </p>
                                 </td>
+                                <?php if (empty($contactMessage->telephone)): ?>
 
-                                <td style="width: 265px; vertical-align: top; padding-right: 20px; padding-top: 10px; padding-bottom: 5px; text-align: left;">
-                                    <p style="margin: 5px 0 5px 0 !important; font-family: 'Roboto', Arial, sans-serif; font-size: 16px; font-weight: 400;">
-                                        <span style="font-weight: 300; font-size: 14px;">Tel&eacute;fono</span> <br style="margin-bottom: 5px;">
-                                        <span style="font-weight: bold"><?= $contactMessage->telephone; ?></span>
-                                    </p>
-                                </td>
+                                <?php else: ?>
+                                    <td style="width: 265px; vertical-align: top; padding-right: 20px; padding-top: 10px; padding-bottom: 5px; text-align: left;">
+                                        <p style="margin: 5px 0 5px 0 !important; font-family: 'Roboto', Arial, sans-serif; font-size: 16px; font-weight: 400;">
+                                            <span style="font-weight: 300; font-size: 14px;">Tel&eacute;fono</span> <br style="margin-bottom: 5px;">
+                                            <span style="font-weight: bold; font-size: 18px;">
+                                            <?php
+                                            echo  $contactMessage->telephone;
+                                            ?>
+                                        </span>
+                                        </p>
+                                    </td>
+                                <?php endif; ?>
                             </tr>
 
                             <tr>
                                 <td style="width: 265px; vertical-align: top; padding-left: 20px; padding-top: 0px; padding-bottom: 5px; text-align: left;">
                                     <p style="margin: 5px 0 5px 0 !important; font-family: 'Roboto', Arial, sans-serif; font-size: 16px; font-weight: 400;">
                                         <span style="font-weight: 300; font-size: 14px;">Correo electrónico</span> <br style="margin-bottom: 5px;">
-                                        <span style="font-weight: bold"><?= $contactMessage->email; ?></span>
+                                        <span style="font-weight: bold;font-size: 18px;"><?= $contactMessage->email; ?></span>
                                     </p>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="width: 265px; vertical-align: top; padding-left: 20px; padding-top: 0px; padding-bottom: 5px; text-align: left;">
-                                    <p style="margin: 5px 0 5px 0 !important; font-family: 'Roboto', Arial, sans-serif; font-size: 16px; font-weight: 400;">
-                                        <span style="font-weight: 300; font-size: 14px;">Servicios de interés</span> <br style="margin-bottom: 5px;">
-                                        <span style="font-weight: bold"><?= $contactMessage->organization; ?></span>
-                                    </p>
-                                </td>
+                                <?php if (empty($contactMessage->services)): ?>
+
+                                <?php else: ?>
+                                    <td style="width: 265px; vertical-align: top; padding-left: 20px; padding-top: 0px; padding-bottom: 5px; text-align: left;">
+                                        <p style="margin: 5px 0 5px 0 !important; font-family: 'Roboto', Arial, sans-serif; font-size: 16px; font-weight: 400;">
+                                            <span style="font-weight: 300; font-size: 14px;">Servicios de interés</span> <br style="margin-bottom: 5px;">
+                                            <?php
+                                            $items = explode(",", $contactMessage->services);
+                                            echo "<ul>";
+                                            foreach ($items as $item) {
+                                                // Verificar si el item está vacío
+                                                echo "<li style=\"font-weight: bold; font-size: 18px; padding: 0;\">" . $item . "</li>";
+                                            }
+                                            echo "</ul>";
+                                            ?>
+                                        </p>
+                                    </td>
+                                <?php endif; ?>
+
                             </tr>
                             </tbody>
                         </table>
