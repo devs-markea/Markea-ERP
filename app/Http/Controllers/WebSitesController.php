@@ -17,21 +17,23 @@ class WebSitesController extends Controller
         $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'company' => 'required|string|max:255',
+
             'email' => 'required|email|max:255',
-            'phone' => 'required|string|max:20',
-            // Add more validations as per your requirements
+
+            // Agrega más validaciones según tus requerimientos
         ]);
+
 
         // Create a new form instance
         $form = new Form([
             'first_name' => $request->input('first_name'),
             'last_name' => $request->input('last_name'),
-            'company' => $request->input('company'),
+            'services' => $request->input('services') ?: "-", // Si 'services' está vacío, se asigna "-"
             'email' => $request->input('email'),
-            'phone' => $request->input('phone'),
-            // Add more fields as per the data you expect from the form
+            'phone' => $request->input('phone') ?: "-", // Si 'phone' está vacío, se asigna "-"
+            // Agrega más campos según los datos que esperas del formulario
         ]);
+
 
         // Save the form data to the database
         $form->save();
@@ -47,10 +49,10 @@ class WebSitesController extends Controller
             //Server settings
             $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
             $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'smtp-relay.brevo.com';                     //Set the SMTP server to send through
+            $mail->Host       = 'smtp.sendgrid.net';                     //Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'kalanobleasmkt@gmail.com';                     //SMTP username
-            $mail->Password   = 'wk7bxRE8BhJFyW19';                               //SMTP password
+            $mail->Username   = 'apikey';                     //SMTP username
+            $mail->Password   = '';                               //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
 //    $mail->Port       = 587;
             $mail->SMTPSecure = 'ssl';
@@ -59,7 +61,7 @@ class WebSitesController extends Controller
             //Recipients
             $mail->setFrom('admin@markea.agency', 'Administrador');
 //    $mail->setFrom('info@mnamaquila.com', 'MNA Maquila');
-            $mail->addAddress('dennis@markea.agency', 'MNA Maquila');     //Add a recipient
+            $mail->addAddress('dennis@markea.agency', 'Dennis Yam');     //Add a recipient
 //    $mail->addAddress('ellen@example.com');               //Name is optional
 //    $mail->addReplyTo('info@example.com', 'Information');
 //    $mail->addCC('cc@example.com');
@@ -82,7 +84,7 @@ class WebSitesController extends Controller
             $contactMessage->telephone = $request->input('phone');
             $contactMessage->email = $request->input('email');
             $contactMessage->name = $request->input('first_name') .' '. $request->input('last_name');
-            $contactMessage->organization = $request->input('company');
+            $contactMessage->services = $request->input('services');
 //            $contactMessage->imagenPathLogo = public_path('images/logo-mna-maq.png');
             $contactMessage->imagenPathHero = public_path('images/header-markea.png');
 
