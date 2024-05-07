@@ -13,7 +13,7 @@ class Form extends Model
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'company', 'email', 'phone',
+        'first_name', 'last_name', 'services', 'email', 'phone',
         // Add more fields as per your requirements
     ];
 }
